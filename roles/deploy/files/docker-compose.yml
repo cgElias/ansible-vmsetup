@@ -1,5 +1,12 @@
 version: "3"
 services:
+  clair-proxy:
+    image: cgelias/clair-proxy
+    restart: always
+    ports:
+      - 80:80
+    networks:
+      - devnet
   sonar:
     image: sonarqube
     restart: always
