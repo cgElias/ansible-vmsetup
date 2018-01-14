@@ -1,7 +1,7 @@
 version: "3"
 services:
   sonar:
-    image: sonarqube
+    image: sonarqube # b17c9b4768fc079cd947b5429d66011863946933 test token
     restart: always
     ports:
       - 9000:9000
@@ -80,6 +80,12 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
+    networks:
+      - devnet
+  test:
+    image: centos:7
+    ports:
+      - "22:22"
     networks:
       - devnet
   # redis:
